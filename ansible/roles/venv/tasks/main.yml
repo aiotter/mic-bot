@@ -5,5 +5,5 @@
 
 - name: pip install dependencies
   pip:
-    requirements: "{{ loopup('env', 'HOME') }}/ansible/mic-bot/requirements.txt"
+    requirements: "{{ lookup('env', 'HOME') }}/ansible/mic-bot/requirements.txt"
     executable: "{{ lookup('env', 'HOME') }}/ansible/mic-bot/.venv/bin/pip3"

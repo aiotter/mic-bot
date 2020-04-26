@@ -13,7 +13,7 @@
     - name: Register mic-bot.service
       template:
         src: mic-bot.service
-        dst: "{{ user_systemd_dir }}/mic-bot.service"
+        dest: "{{ user_systemd_dir }}/mic-bot.service"
 
 - name: Enable mic-bot.service
   systemd:
