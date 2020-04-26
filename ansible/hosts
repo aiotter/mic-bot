@@ -1,0 +1,5 @@
+[raspi]
+aiotter-raspi.local
+
+[raspi:vars]
+ansible_ssh_user=A1

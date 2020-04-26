@@ -1,0 +1,9 @@
+- name: Create venv
+  command:
+    cmd: "python3 -m venv {{ lookup('env', 'HOME') }}/ansible/mic-bot/.venv"
+    creates: "{{ lookup('env', 'HOME') }}/ansible/mic-bot/.venv"
+
+- name: pip install dependencies
+  pip:
+    requirements: "{{ loopup('env', 'HOME') }}/ansible/mic-bot/requirements.txt"
+    executable: "{{ lookup('env', 'HOME') }}/ansible/mic-bot/.venv/bin/pip3"

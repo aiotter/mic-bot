@@ -1,0 +1,23 @@
+---
+- vars:
+    HOME: "{{ lookup('env', 'HOME') }}"
+    XDG_CONFIG_HOME: "{{ lookup('env', 'XDG_CONFIG_HOME') }}"
+    user_systemd_dir: "{{ XDG_CONFIG_HOME or (HOME + '/.config') + '/systemd/user' }}"
+
+  block:
+    - name: Create user directory for systemd
+      file:
+        path: "{{ user_systemd_dir }}"
+        state: directory
+
+    - name: Register mic-bot.service
+      template:
+        src: mic-bot.service
+        dst: "{{ user_systemd_dir }}/mic-bot.service"
+
+- name: Enable mic-bot.service
+  systemd:
+    name: mic-bot
+    scope: user
+    enabled: yes
+    state: started

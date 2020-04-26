@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Install ffmpeg
+      apt:
+        name: ffmpeg
+  roles:
+    - clone
+    - venv
+    - systemd

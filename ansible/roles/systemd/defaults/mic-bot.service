@@ -1,0 +1,12 @@
+[Unit]
+Description=mic-bot
+After=network.target
+
+[Service]
+ExecStart={{ HOME }}/ansible/mic-bot/.venv/bin/python3 {{ HOME }}/ansible/mic-bot/bot.py
+Type=simple
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,4 @@
+- name: Clone files
+  git:
+    repo: https://github.com/aiotter/mic-bot
+    dest: ~/ansible/mic-bot
